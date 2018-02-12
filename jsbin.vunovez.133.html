@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2018 by Dataloren (http://jsbin.com/vunovez/133/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+ <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Coloured clock-2</title>
+<style id="jsbin-css">
+* { margin: 0; padding: 0; }
+html, body {
+  height: 100%;
+}
+
+body {
+  animation: colorchange 100s linear infinite;
+  -webkit-animation: colorchange 100s linear infinite;
+}
+
+@keyframes colorchange
+{ 0% {background: hsl(219, 65%,	20%);}
+  5% {background: hsl(222, 60%,	22%);}
+  10% {background: hsl(211,	50%,	65,);}
+  15% {background: hsl(219,	65%,	66%);}
+  20% {background: hsl(212,	45%,	63%);}
+  25% {background: hsl(216,	65%,	63%);}
+  30% {background: hsl(208,	60%,	65%);}
+  40% {background: hsl(210,	60%,	55%);}
+  45% {background: hsl(210,	65%,	50%);}
+  50% {background: hsl(204,	30%,	51%);}
+  55% {background: hsl(216,	37%, 55%);}
+  60% {background: hsl(207,	44%,	49%);}
+  65% {background: hsl(213, 65%,	41%);}
+  70% {background: hsl(206,	18%,	40%);}
+  75% {background: hsl(215,	65%,	34%);}
+  80% {background: hsl(212,	60%,	32%);}
+  85% {background: hsl(209,	60%,	26%);}
+  90% {background: hsl(210,	60%,	20%);}
+  95% {background: hsl(212,	65%,	19%);}
+  100% {background: hsl(219, 60%,	20%);}
+}
+
+@-webkit-keyframes colorchange
+
+{ 0% {background: hsl(219, 65%,	20%);}
+  5% {background: hsl(222, 60%,	22%);}
+  10% {background: hsl(211,	50%,	65,);}
+  15% {background: hsl(219,	65%,	66%);}
+  20% {background: hsl(212,	45%,	63%);}
+  25% {background: hsl(216,	65%,	63%);}
+  30% {background: hsl(208,	60%,	65%);}
+  40% {background: hsl(210,	60%,	55%);}
+  45% {background: hsl(210,	65%,	50%);}
+  50% {background: hsl(204,	30%,	51%);}
+  55% {background: hsl(216,	37%, 55%);}
+  60% {background: hsl(207,	44%,	49%);}
+  65% {background: hsl(213, 65%,	41%);}
+  70% {background: hsl(206,	18%,	40%);}
+  75% {background: hsl(215,	65%,	34%);}
+  80% {background: hsl(212,	60%,	32%);}
+  85% {background: hsl(209,	60%,	26%);}
+  90% {background: hsl(210,	60%,	20%);}
+  95% {background: hsl(212,	65%,	19%);}
+  100% {background: hsl(219, 60%,	20%);}
+}
+
+#clock {
+  text-align: center;
+  position: relative;
+  top: 60%;
+  font-family: 'Audiowide', cursive;
+  font-size: 90px;
+  color: lightgrey;
+  margin-top: -42px;
+  transform: skewY(35deg);
+  text-shadow:
+    0 1px #808d93,
+    -1px 0 #d9d9d9,
+    -1px 2px #808d93,
+    -2px 1px #d9d9d9,
+    -2px 3px #808d93,
+    -3px 2px #d9d9d9,
+    -3px 4px #808d93,
+    -4px 3px #d9d9d9,
+    -4px 5px #808d93,
+    -5px 4px #d9d9d9,
+    -5px 7px #808d93,
+    -6px 5px #d9d9d9,
+    -6px 7px #808d93,
+    -7px 5px #d9d9d9,
+    -7px 8px #808d93,
+    -8px 7px #d9d9d9;
+}
+</style>
+</head>
+<body>
+  <div id="clock">12:13:14</div>
+<script id="jsbin-javascript">
+function colorClock() {
+
+var date = new Date();
+
+var hours = date.getHours();
+var minutes = date.getMinutes();
+var seconds = date.getSeconds();
+var meridiem = "AM";
+
+if (hours > 12) {
+  hours = hours - 12;
+  meridiem = "PM";
+}
+
+if (hours === 0) {
+  hours = 12;
+}
+
+if (hours <= 9) {
+  hours = '0' + hours;
+}
+
+if (minutes <= 9) {
+  minutes = '0' + minutes;
+}
+
+if (seconds <= 9) {
+  seconds = '0' + seconds;
+}
+
+var clockFace = hours + '/' + minutes + '/' + seconds +  " " + meridiem;
+
+var hexColor = '#' + hours + minutes + seconds;
+
+document.getElementById('clock').innerHTML = clockFace;
+
+
+setTimeout(function() {
+  colorClock();
+}, 1000);
+}
+colorClock();
+
+</script>
+</body>
+</html>
